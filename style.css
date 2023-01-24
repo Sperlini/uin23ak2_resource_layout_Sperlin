@@ -1,0 +1,43 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 2px solid grey;
+    
+
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    background-color: rgb(165, 165, 165);
+    justify-content: space-around;
+    
+}
+
+nav a{
+    
+    text-decoration: none;
+    padding: .5rem 1rem;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: ease-in-out;
+    display: grid;
+    
+}
+
+nav a:hover{
+    color: yellow;
+    border-color: yellow;
+    
+
+}
+
+main{
+
+    border-color: cyan;
+    border: 2px solid rgb(163, 162, 162);
+    border-top: 5px solid cyan;
+    padding: 0 3rem;
+    /*display:none*/
+}
