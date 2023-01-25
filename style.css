@@ -108,5 +108,7 @@ div{
     
     background: cyan;
     border-style: none;
+    color: white;
 }
 
+/* https://linuxhint.com/change-button-color-on-click-css/ */ 

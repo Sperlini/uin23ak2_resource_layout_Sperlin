@@ -96,7 +96,7 @@ const resources = [
 ]
 
 
-let resourcesHTML = ""
+/*let resourcesHTML = ""
 
 resources.map((categorylink) => {
    
@@ -110,13 +110,14 @@ resources.map((categorylink) => {
     `
 })
 
-
-
-
 function printRe(){
     document.getElementById("printarea").innerHTML = resourcesHTML;
     console.log()  
 }
+ Første forsøk jeg hadde for å printe ut innhold, dette funket problemet er at alt av innhold ble printet ut  */
+
+
+
 
 
 
@@ -127,7 +128,7 @@ function printCSS() {
 		cssHTML += `
          <h1>${catg.category}</h1>
 		<p>${catg.text}</p>
-        
+     
         `
 		catg.sources.map((links) => {
 			cssHTML += `
@@ -140,6 +141,14 @@ function printCSS() {
 	
 	
 }
+/*Her printes det ut fra level 1 av den multidimensional array først, 
+så printer den ut level 2 som innholder link/url. Funksjonen ser etter kategori 
+navnet for å vite hvem array som skal printes og hentes. 
+
+
+Denne koden blir gjenbrukt og laget på nytt flere ganger for hver kategori */ 
+
+
 
 function printHTML() {
 	htmlHTML = "";
@@ -197,9 +206,9 @@ function printReact() {
             <ul><li><a href="${links.url}">${links.title}</a></li></ul>
             `
 		})
-		
+		document.getElementById("printarea").innerHTML = reactHTML;
 	})
-	document.getElementById("printarea").innerHTML = reactHTML;
+	
 	
 	
 }
@@ -226,11 +235,6 @@ function printSanity() {
 }
 
 
-/* Nestet array, 2 level array */ 
-
-
-
-/* https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_nested */ 
 
 
 var btnpicked = document.querySelectorAll(".btn");
@@ -238,9 +242,20 @@ Array.from(btnpicked).forEach(item => {
     item.addEventListener("click" , () => {
         
         var tabselected = document.getElementsByClassName("active");
-        tabselected[0].className = tabselected[0].className.replace("active","");
+        tabselected[0].className = tabselected[0].className.replace("active"," ");
         item.className += " active";
         console.log(btnpicked)
-    });
-});
+    })
+})
 
+/*Funksjon som fjerner class som har ordet "active" i seg så legger til "" , og legger til i class som ikke har "active" i seg. 
+
+/* https://stackoverflow.com/questions/63920712/editing-javascript-to-change-button-color-once-clicked  Ble inspirert av hvordan koden skulle være fra her*/ 
+
+
+
+
+
+document.getElementById(printHTML).innerHTML = printHTML()
+
+/* Linje er for at siden skal starte/loade med printHTML() allerede kjørt, for å gi mening til active tab knapp fargene */  
