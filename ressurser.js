@@ -81,7 +81,7 @@ const resources = [
         sources: [
             {
                 title: "Sanity documentation",
-                url: "https://www.sanity.io/docs"
+                url: "https://www.sanity.io/docs",
             },
             {
                 title: "OnCrawl: a beginners guide to headless CMS",
@@ -95,70 +95,152 @@ const resources = [
     },
 ]
 
-function  kategoriPrint(category, text, sources){
-    let listHTML= ""
-resources.map((title, url, index) => listHTML += 
-    `<li id="prod-${index}"> 
-    <span class="title">${category}</span>
-    <span class="price">${text}</span>
-    <span class="quantity">${sources}</span>
-    <button class="delete" onClick="deleteProduct(${index})">X</button>
-    </li>
-    `) 
-console.log()
 
-document.querySelector("#cartview").innerHTML = listHTML;
+let resourcesHTML = ""
 
-}
-
-
-function menuPrint(){
-    let listHTML= ""
-
-resources.map(categoryJava => {
-    const overskrift = categoryJava.category;
-    let link = "";
-
-    categoryJava.sources.map(sourcesLink => {
-        link += `
-            <li><a href= "${sourcesLink.title}">${sourcesLink.url}</a></li>
-        `
-    })
-
-    listHTML += `
-    <h1>${overskrift}</h1>
-    <ul>${link}</ul>
-    
+resources.map((categorylink) => {
+   
+    let sourceHTML =  categorylink.sources.map((source) => 
+        `<li><a href= "${source.url}">${source.title}</a></li>`         
+    )
+    resourcesHTML += `
+        <h1>${categorylink.category}</h2>
+        <p>${categorylink.text}</p>
+        <ul>${sourceHTML}</ul>
     `
-    
-})
-    document.querySelector("#tablinks").innerHTML = listHTML;
-}
-
-
-let listHTML= ""
-
-resources.map(categoryJava => {
-    const overskrift = categoryJava.category;
-    let link = "";
-
-    categoryJava.sources.map(sourcesLink => {
-        link += `
-            <li><a href= "${sourcesLink.title}">${sourcesLink.url}</a></li>
-        `
-    })
-
-    listHTML += `
-    <h1>${overskrift}</h1>
-    <ul>${link}</ul>
-    
-    `
-    
 })
 
 
 
 
+function printRe(){
+    document.getElementById("printarea").innerHTML = resourcesHTML;
+    console.log()  
+}
+
+
+
+function printCSS() {
+	cssHTML = "";
+	const csstab = resources.filter((catg) => catg.category === "CSS");
+	csstab.map((catg) => {
+		cssHTML += `
+         <h1>${catg.category}</h1>
+		<p>${catg.text}</p>
+        
+        `
+		catg.sources.map((links) => {
+			cssHTML += `
+            <ul><li><a href="${links.url}">${links.title}</a></li></ul>
+            `
+		})
+		
+	})
+	document.getElementById("printarea").innerHTML = cssHTML;
+	
+	
+}
+
+function printHTML() {
+	htmlHTML = "";
+	const htmltab = resources.filter((catg) => catg.category === "HTML");
+	htmltab.map((catg) => {
+		htmlHTML += `
+         <h1>${catg.category}</h1>
+		<p>${catg.text}</p>
+        
+        `
+		catg.sources.map((links) => {
+			htmlHTML += `
+            <ul><li><a href="${links.url}">${links.title}</a></li></ul>
+            `
+		})
+		
+	})
+	document.getElementById("printarea").innerHTML = htmlHTML;
+	
+	
+}
+
+function printJava() {
+	javaHTML = "";
+	const javatab = resources.filter((catg) => catg.category === "JavaScript");
+	javatab.map((catg) => {
+		javaHTML += `
+         <h1>${catg.category}</h1>
+		<p>${catg.text}</p>
+        
+        `
+		catg.sources.map((links) => {
+			javaHTML += `
+            <ul><li><a href="${links.url}">${links.title}</a></li></ul>
+            `
+		})
+		
+	})
+	document.getElementById("printarea").innerHTML = javaHTML;
+	
+	
+}
+
+function printReact() {
+	reactHTML = "";
+	const reacttab = resources.filter((catg) => catg.category === "React");
+	reacttab.map((catg) => {
+		reactHTML += `
+         <h1>${catg.category}</h1>
+		<p>${catg.text}</p>
+        
+        `
+		catg.sources.map((links) => {
+			reactHTML += `
+            <ul><li><a href="${links.url}">${links.title}</a></li></ul>
+            `
+		})
+		
+	})
+	document.getElementById("printarea").innerHTML = reactHTML;
+	
+	
+}
+
+function printSanity() {
+	sanityHTML = "";
+	const sanitytab = resources.filter((catg) => catg.category === "Sanity and headless CMS");
+	sanitytab.map((catg) => {
+		sanityHTML += `
+         <h1>${catg.category}</h1>
+		<p>${catg.text}</p>
+        
+        `
+		catg.sources.map((links) => {
+			sanityHTML += `
+            <ul><li><a href="${links.url}">${links.title}</a></li></ul>
+            `
+		})
+		
+	})
+	document.getElementById("printarea").innerHTML = sanityHTML;
+	
+	
+}
 
 
 /* Nestet array, 2 level array */ 
+
+
+
+/* https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_nested */ 
+
+
+var btnpicked = document.querySelectorAll(".btn");
+Array.from(btnpicked).forEach(item => {
+    item.addEventListener("click" , () => {
+        
+        var tabselected = document.getElementsByClassName("active");
+        tabselected[0].className = tabselected[0].className.replace("active","");
+        item.className += " active";
+        console.log(btnpicked)
+    });
+});
+

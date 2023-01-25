@@ -3,33 +3,48 @@ header{
     justify-content: space-between;
     padding: 1rem;
     border: 2px solid grey;
-    
+    background-color: white;
+    width: 100%;
+    max-width: 1177px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
 
 }
 
 nav{
     width: 100%;
-    display: flex;
-    background-color: rgb(165, 165, 165);
+    display: grid;
     justify-content: space-around;
-    
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    background-color: white;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    /* linje 23-27 lånt fra legodudes workshop, disse ser man repterende igjennom css filen */ 
 }
 
 nav a{
     
     text-decoration: none;
     padding: .5rem 1rem;
-    display: inline-block;
+    
     text-transform: uppercase;
     transition: ease-in-out;
-    display: grid;
     
+    justify-content: start;
 }
 
-nav a:hover{
-    color: yellow;
-    border-color: yellow;
+nav button:hover{
     
+    border-color: cyan;
+    background: cyan;
+    color: white;
+    border-style: none;
 
 }
 
@@ -38,6 +53,60 @@ main{
     border-color: cyan;
     border: 2px solid rgb(163, 162, 162);
     border-top: 5px solid cyan;
-    padding: 0 3rem;
+    padding: 0;
+    box-sizing: border-box;
     /*display:none*/
+    background-color: white;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    
 }
+
+div {
+    background-color: white;
+    width: 300px;
+    padding: 50px;
+    margin: 20px;
+    height: 500px;
+  }
+  /* https://www.w3schools.com/css/tryit.asp?filename=trycss_boxmodel fikk ide å ha innhold box i en div tag fra her> */
+
+  
+nav button{
+    height: 4rem;
+    width: 10rem;
+    align-items: center;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+
+header a{
+    text-decoration: none;
+    color:inherit;
+    /*https://stackoverflow.com/questions/6722467/how-do-i-remove-the-default-link-color-of-the-html-hyperlink-a-tag*/
+    color:grey
+}
+
+div{
+    
+        background-color: white;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        
+    
+}
+
+.btn.active{
+    
+    background: cyan;
+    border-style: none;
+}
+
